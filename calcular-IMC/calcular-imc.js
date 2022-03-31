@@ -44,7 +44,7 @@ function classificarImc() {
 	}
 }
 
-let imc = (calcularIMC(85, 1.65))
+let imc = (calcularIMC(80, 1.65))
 
 console.log(imc)
 console.log(classificarImc())
