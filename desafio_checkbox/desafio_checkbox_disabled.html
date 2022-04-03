@@ -22,12 +22,22 @@
         <input type="checkbox" id="contrato" onchange="enableOrDisableButton()">
         <label for="contrato">Li e aceito o seguinte contrato</label><br><br>
         <textarea name="" id="" cols="30" rows="10" readonly>Este contrato nos dá direito à ...</textarea><br><br>
-        <input type="submit" value="cadastrar">
+        <input id="btn" type="submit" value="cadastrar">
     </form>
 
     <script>
-
+        const contrato = document.querySelector("#contrato")
+        const btn = document.getElementById('btn')
         
+        function enableOrDisableButton() {
+            btn.disabled = true
+
+            let checked = contrato.checked
+
+            btn.disabled = !checked
+            console.log(checked)
+        }
+    </script>
 
     </script>
 
