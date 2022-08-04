@@ -6,10 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container2 {
+            background: #ccc;
+            padding: 15px;
+        }
+
+        .container2 p {
+            border: 1px solid red;
+            padding: 10px;
+            margin: 15px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>teste Dom</h1>
+    <!-- beforebegin -->
+    <div class="container2">
+        <!-- afterbegin -->
+        <p>paragrafo 1</p>
+        <p>paragrafo 1</p>
+        <p>paragrafo 1</p>
+        <!-- beforeend -->
+    </div>
+    <!-- afterend -->
     <div class="container">
         <p>teste 1</p>
         <p>lorem <a href="#"> Link </a></p>
@@ -59,7 +80,7 @@
         const title2 = document.createElement('h1')
         title2.textContent = "titulo 2 "
 
-        const list =  document.querySelector("ul")
+        const list = document.querySelector("ul")
 
         const container = document.querySelector(".container")
 
@@ -81,7 +102,24 @@
         segundoParagrafo.after("texto inserido com after")
         segundoParagrafo.before("texto inserido com before")
 
-       
+
+        const container2 = document.querySelector(".container2")
+        //beforebegin, afterbegin, beforeend, afterend
+
+        container2.insertAdjacentHTML("beforebegin", "<b> texto inserido </b>")
+        container2.insertAdjacentHTML("afterbegin", "<b> texto inserido 2 </b>")
+        container2.insertAdjacentHTML("beforeend", "<b> texto inserido 3 </b>")
+        container2.insertAdjacentHTML("afterend", "<b> texto inserido 4 </b>")
+
+        container2.insertAdjacentText("afterbegin", "<b> texto inserido 5 </b>")
+
+        const em = document.createElement("em")
+        em.textContent = " texto com enfase"
+        container2.insertAdjacentElement("beforeend", em)
+
+    
+
+
 
     </script>
 </body>
