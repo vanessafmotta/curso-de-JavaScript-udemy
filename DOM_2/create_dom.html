@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>teste Dom</h1>
+    <div class="container">
+        <p>teste 1</p>
+        <p>lorem <a href="#"> Link </a></p>
+        <p>teste 2</p>
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+                    <li>
+                        <!-- comentário
+                         -->
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">link</a></li>
+        </ul>
+    </div>
+    <script>
+        const title = document.createElement('h1')
+        const atributo = document.createAttribute('id')
+        atributo.value = 'title1'
+        title.setAttributeNode(atributo)
+
+        title.setAttribute("title", "title inserido dinamicamente")
+        title.setAttribute("style", "color: red;")
+
+        const text = document.createTextNode("Criar nós no DOM")
+        title.appendChild(text)
+
+        title.textContent = "texto inserido com textContent"
+
+        console.log(title)
+
+        // document.body.appendChild(title)
+
+        // document.querySelector(".container").appendChild(title) // appendChild - sempre vai inserir lá no final, ele vai colocar um filho, depois do último filho do elemento
+        // document.querySelector(".container").append(title) // append - método anexa um elemento ao final da lista.
+        document.querySelector(".container").prepend(title) // prepend - antes do primeiro filho
+       
+
+    </script>
+</body>
+
+
+</html>
