@@ -73,6 +73,14 @@
         const h2 = document.querySelector("h2")
 
         container.insertBefore(sublevel, h2.nextElementSibling)
+
+        const segundoParagrafo = container.firstElementChild.nextElementSibling.nextElementSibling
+        console.log(container.firstElementChild)
+        console.log(segundoParagrafo)
+
+        segundoParagrafo.after("texto inserido com after")
+        segundoParagrafo.before("texto inserido com before")
+
        
 
     </script>
