@@ -52,6 +52,27 @@
         // document.querySelector(".container").appendChild(title) // appendChild - sempre vai inserir lá no final, ele vai colocar um filho, depois do último filho do elemento
         // document.querySelector(".container").append(title) // append - método anexa um elemento ao final da lista.
         document.querySelector(".container").prepend(title) // prepend - antes do primeiro filho
+
+
+        // método insertBefore
+
+        const title2 = document.createElement('h1')
+        title2.textContent = "titulo 2 "
+
+        const list =  document.querySelector("ul")
+
+        const container = document.querySelector(".container")
+
+        document.querySelector(".container").insertBefore(title2, list)
+        container.insertBefore(title2, container.firstChild)
+
+
+        let sublevel = document.querySelector("ul ul")
+        sublevel = sublevel.cloneNode(true)
+
+        const h2 = document.querySelector("h2")
+
+        container.insertBefore(sublevel, h2.nextElementSibling)
        
 
     </script>
