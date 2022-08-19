@@ -44,10 +44,12 @@
         document.addEventListener("click", function () {
             console.log("clicou no document")
         }, false)
-
-        btn3.addEventListener("click", function () {
+        
+        btn3.addEventListener("click", function (e) {
+            console.log(e)
+            e.stopPropagation()
             console.log("clicou no btn3")
-        }, true)
+        }, false)
 
         const container = document.getElementById("container")
         container.addEventListener("click", function(){
