@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container2{
+        background-color: #ccc;
+        padding: 20px;
+    }
+    </style>
 </head>
 
 <body>
@@ -14,6 +20,13 @@
         <button id="btn1" onclick="clicou()">botão 1</button>
         <button id="btn2">botão 2</button>
         <button id="btn3">botão 3</button>
+    </div>
+    <hr>
+    <h1>Delegação de eventos</h1>
+    <div class="container2">
+        <button>Botão 1</button>
+        <button>Botão 2</button>
+        <button>Botão 3</button>
     </div>
 
     <script>
@@ -44,7 +57,7 @@
         document.addEventListener("click", function () {
             console.log("clicou no document")
         }, false)
-        
+
         btn3.addEventListener("click", function (e) {
             console.log(e)
             e.stopPropagation()
@@ -52,9 +65,21 @@
         }, false)
 
         const container = document.getElementById("container")
-        container.addEventListener("click", function(){
+        container.addEventListener("click", function () {
             console.log("clicou no container")
-        },true)
+        }, true)
+
+        const container2 = document.querySelector('.container2')
+        const btns = document.querySelectorAll(".container2 button")
+
+        container2.addEventListener("click", function(e){
+            e.stopPropagation()
+            if(e.target.nodeName === "BUTTON"){
+                console.log(e.target)
+
+            }
+        })
+
     </script>
 </body>
 
