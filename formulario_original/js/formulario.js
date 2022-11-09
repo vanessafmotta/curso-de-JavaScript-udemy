@@ -18,14 +18,27 @@
     const contadorContainer = document.getElementById("contador")
     const resta = contadorContainer.getElementsByTagName("span")[0]
     const maxima = txtDescricao.maxLength
+    mostraNumero(maxima)
 
     contadorContainer.style.display = "block"
 
     function checkLength(){
         let numeroLetrasDigitadas = this.value.length
         let caracteresRestantes = parseInt(maxima) - parseInt(numeroLetrasDigitadas)
-        resta.textContent = caracteresRestantes
+        mostraNumero(caracteresRestantes)
     }
 
-    txtDescricao.addEventListener("input", checkLength)
+    function mostraNumero(n) {
+        resta.textContent = n
+    }
+
+    txtDescricao.addEventListener("change", checkLength)
+
+    btn.disabled = true
+
+    const chkAceito = document.getElementById("chkAceito")
+
+    chkAceito.addEventListener('click', function(){
+        btn.disabled = !this.checked
+    })
 })()
