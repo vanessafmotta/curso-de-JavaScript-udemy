@@ -12,8 +12,8 @@
                 txtTitulo.focus()
             })
             e.preventDefault();
-        }
-    })
+        };
+    });
 
     const feedbackMessage = document.getElementById("feedbackMessage")
     const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
@@ -22,18 +22,29 @@
         feedbackMessage.classList.add("show")
         feedbackMessage.getElementsByTagName("p")[0].textContent = msg
 
+        feedbackMessageCloseBtn.focus()
+
         function hideErrorMessage() {
             console.log("clicando close")
             feedbackMessage.classList.remove("show")
-
             feedbackMessageCloseBtn.removeEventListener("click", hideErrorMessage)
+            feedbackMessageCloseBtn.removeEventListener("keyup", pressedKeyboardOnBtn)
 
             if (typeof cb === "function") {
                 cb()
-            }
+            };
+        };
 
-        }
+        function pressedKeyboardOnBtn(e){
+            if(e.keyCode === 27){
+                hideErrorMessage()
+            };
+        };
+
+
         feedbackMessageCloseBtn.addEventListener("click", hideErrorMessage)
+
+        feedbackMessageCloseBtn.addEventListener("keyup", pressedKeyboardOnBtn)
     }
 
 
@@ -50,11 +61,11 @@
         let numeroLetrasDigitadas = this.value.length
         let caracteresRestantes = parseInt(maxima) - parseInt(numeroLetrasDigitadas)
         mostraNumero(caracteresRestantes)
-    }
+    };
 
     function mostraNumero(n) {
         resta.textContent = n
-    }
+    };
 
     txtDescricao.addEventListener("change", checkLength)
 
@@ -64,5 +75,6 @@
 
     chkAceito.addEventListener('click', function () {
         btn.disabled = !this.checked
-    })
-})()
+    });
+
+})();
